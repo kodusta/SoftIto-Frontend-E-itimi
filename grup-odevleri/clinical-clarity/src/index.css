@@ -1,0 +1,1489 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-body-md antialiased min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container;
+  }
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+.medical-glow {
+  box-shadow: 0px 10px 30px rgba(0, 119, 182, 0.08);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.success-check-anim {
+  animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.error-shake {
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+.bg-pattern {
+  background-color: #f8ffbd;
+  background-image: radial-gradient(#0077b6 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+}
+
+.header-root {
+  @apply fixed top-0 left-0 w-full h-16 bg-surface border-b border-outline-variant z-50 flex justify-between items-center px-container-margin transition-all duration-300;
+}
+
+.header-scrolled {
+  @apply bg-surface/95 backdrop-blur-md shadow-md;
+}
+
+.header-logo-container {
+  @apply flex items-center gap-xs cursor-pointer select-none;
+}
+
+.header-logo-icon {
+  font-family: 'Material Symbols Outlined';
+  @apply text-primary text-headline-md;
+  font-variation-settings: 'FILL' 1;
+}
+
+.header-logo-text {
+  @apply font-headline-md text-headline-md font-bold text-primary;
+}
+
+.header-nav {
+  @apply hidden md:flex items-center gap-lg;
+}
+
+.header-link {
+  @apply font-label-md text-label-md text-secondary hover:text-primary transition-colors px-3 py-2 rounded-full;
+}
+
+.header-link-active {
+  @apply font-label-md text-label-md text-primary font-bold transition-colors px-3 py-2 rounded-full bg-primary-container/10;
+}
+
+.header-actions {
+  @apply flex items-center gap-sm;
+}
+
+.header-emergency-btn {
+  font-family: 'Material Symbols Outlined';
+  @apply text-primary p-2 hover:bg-primary-container/10 rounded-full transition-colors cursor-pointer;
+}
+
+.header-menu-btn {
+  font-family: 'Material Symbols Outlined';
+  @apply md:hidden text-primary p-2 hover:bg-primary-container/10 rounded-full transition-colors cursor-pointer;
+}
+
+.main-content {
+  @apply flex-grow pt-16 pb-32;
+}
+
+.hero-section {
+  @apply flex flex-col md:flex-row gap-lg items-center py-xl px-container-margin max-w-7xl mx-auto;
+}
+
+.hero-content {
+  @apply flex-1 text-left space-y-md;
+}
+
+.hero-badge {
+  @apply inline-block py-1 px-3 bg-tertiary-container/20 text-tertiary font-label-md text-label-md rounded-full;
+}
+
+.hero-title {
+  @apply font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface leading-tight;
+}
+
+.hero-desc {
+  @apply font-body-lg text-body-lg text-on-surface-variant max-w-xl;
+}
+
+.hero-ctas {
+  @apply flex flex-wrap gap-sm pt-base;
+}
+
+.hero-btn-primary {
+  @apply bg-primary text-on-primary px-lg py-sm rounded-full font-label-md text-label-md hover:bg-primary-container transition-colors shadow-md active:scale-95 duration-150;
+}
+
+.hero-btn-secondary {
+  @apply border-2 border-primary text-primary px-lg py-sm rounded-full font-label-md text-label-md hover:bg-primary-container/10 transition-colors active:scale-95 duration-150;
+}
+
+.hero-image-container {
+  @apply flex-1 relative w-full max-w-md aspect-square;
+}
+
+.hero-image-wrap {
+  @apply w-full h-full rounded-[2rem] overflow-hidden border-4 border-surface-container-high medical-glow;
+}
+
+.hero-image {
+  @apply w-full h-full object-cover transition-transform duration-700 hover:scale-105;
+}
+
+.hero-floating-badge {
+  @apply absolute -bottom-xs -left-xs bg-white p-sm rounded-xl shadow-xl border border-outline-variant/30 flex items-center gap-sm;
+}
+
+.services-filter-row {
+  @apply flex gap-xs mb-lg overflow-x-auto no-scrollbar pb-2 px-container-margin max-w-7xl mx-auto;
+}
+
+.services-filter-btn {
+  @apply flex-shrink-0 px-md py-xs rounded-full font-label-md text-label-md transition-all duration-200 select-none;
+}
+
+.services-filter-btn-active {
+  @apply bg-primary text-on-primary shadow-sm;
+}
+
+.services-filter-btn-inactive {
+  @apply bg-surface-container-high text-on-surface-variant hover:bg-primary-container/10;
+}
+
+.services-grid-container {
+  @apply grid grid-cols-1 md:grid-cols-12 gap-gutter px-container-margin max-w-7xl mx-auto;
+}
+
+.bento-card-featured {
+  @apply md:col-span-8 relative overflow-hidden bg-surface-container-lowest border border-outline-variant/30 rounded-xl medical-glow p-md transition-all duration-300 hover:border-primary-container/50;
+}
+
+.bento-card-featured-layout {
+  @apply flex flex-col md:flex-row gap-md items-start;
+}
+
+.bento-card-featured-img-wrap {
+  @apply w-full md:w-1/2 rounded-lg overflow-hidden h-48 md:h-64;
+}
+
+.bento-card-featured-img {
+  @apply w-full h-full object-cover group-hover:scale-105 transition-transform duration-500;
+}
+
+.bento-card-featured-info {
+  @apply w-full md:w-1/2 flex flex-col justify-between h-full space-y-md;
+}
+
+.bento-card-icon-primary {
+  font-family: 'Material Symbols Outlined';
+  @apply text-primary text-[40px];
+}
+
+.bento-card-icon-tertiary {
+  font-family: 'Material Symbols Outlined';
+  @apply text-tertiary text-[40px];
+}
+
+.bento-card-title {
+  @apply font-headline-md text-headline-md text-on-surface mb-xs;
+}
+
+.bento-card-desc {
+  @apply font-body-md text-body-md text-on-surface-variant;
+}
+
+.bento-card-btn-primary {
+  @apply px-md py-xs bg-primary-container text-on-primary-container font-label-md text-label-md rounded-full transition-colors hover:bg-primary hover:text-white self-start;
+}
+
+.bento-card-single {
+  @apply md:col-span-4 bg-surface-container-lowest border border-outline-variant/30 rounded-xl medical-glow p-md flex flex-col justify-between transition-all duration-300 hover:border-primary-container/50;
+}
+
+.bento-card-single-img-wrap {
+  @apply w-full rounded-lg overflow-hidden h-32 mb-md mt-sm;
+}
+
+.bento-card-single-img {
+  @apply w-full h-full object-cover group-hover:scale-105 transition-transform duration-500;
+}
+
+.bento-card-btn-outline {
+  @apply w-full py-xs border border-primary text-primary font-label-md text-label-md rounded-full hover:bg-primary-container/10 transition-colors text-center;
+}
+
+.bento-card-small {
+  @apply md:col-span-4 bg-surface-container-lowest border border-outline-variant/30 rounded-xl medical-glow p-md transition-all duration-300 hover:border-primary-container/50 flex flex-col justify-between min-h-[220px];
+}
+
+.bento-card-small-btn {
+  @apply text-primary font-label-md text-label-md flex items-center gap-base mt-md group-hover:translate-x-1 transition-transform duration-200;
+}
+
+.bento-card-wide {
+  @apply md:col-span-12 bg-tertiary-container/10 border border-tertiary/20 rounded-xl medical-glow p-md flex flex-col md:flex-row justify-between items-center transition-all duration-300 hover:bg-tertiary-container/20;
+}
+
+.bento-card-wide-info {
+  @apply md:flex-1 text-left space-y-xs;
+}
+
+.bento-card-wide-btn {
+  @apply bg-tertiary text-on-tertiary px-lg py-sm rounded-full font-label-md text-label-md hover:scale-105 transition-transform duration-200 mt-md md:mt-0 md:ml-xl shadow-md;
+}
+
+.why-choose-section {
+  @apply py-xl px-container-margin max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-xl items-center;
+}
+
+.why-images {
+  @apply grid grid-cols-2 gap-sm w-full;
+}
+
+.why-img {
+  @apply w-full aspect-square object-cover rounded-xl border border-outline-variant/30 medical-glow;
+}
+
+.why-content {
+  @apply space-y-md text-left;
+}
+
+.why-title {
+  @apply font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface;
+}
+
+.why-list {
+  @apply space-y-sm;
+}
+
+.why-item {
+  @apply flex gap-md items-start;
+}
+
+.why-item-icon-box {
+  @apply w-12 h-12 shrink-0 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center medical-glow;
+}
+
+.why-item-icon {
+  font-family: 'Material Symbols Outlined';
+  @apply text-[24px];
+}
+
+.why-item-text {
+  @apply space-y-base;
+}
+
+.why-item-title {
+  @apply font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider;
+}
+
+.why-item-desc {
+  @apply text-on-surface-variant text-body-md;
+}
+
+.testimonials-section {
+  @apply py-xl px-container-margin bg-surface-variant/30;
+}
+
+.testimonials-header {
+  @apply text-center mb-lg space-y-base;
+}
+
+.testimonials-title {
+  @apply font-headline-md text-headline-md text-on-surface;
+}
+
+.testimonials-desc {
+  @apply text-on-surface-variant font-body-md text-body-md max-w-2xl mx-auto;
+}
+
+.testimonials-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-gutter max-w-7xl mx-auto;
+}
+
+.testimonial-card {
+  @apply bg-surface p-md rounded-xl border border-outline-variant/10 medical-glow flex flex-col justify-between text-left;
+}
+
+.testimonial-stars-container {
+  @apply flex gap-base mb-sm text-amber-500;
+}
+
+.testimonial-star-icon {
+  font-family: 'Material Symbols Outlined';
+  @apply text-[20px];
+  font-variation-settings: 'FILL' 1;
+}
+
+.testimonial-text {
+  @apply text-on-surface-variant italic mb-md font-body-md text-body-md;
+}
+
+.testimonial-author-box {
+  @apply flex items-center gap-sm;
+}
+
+.testimonial-avatar {
+  @apply w-10 h-10 rounded-full object-cover border border-outline-variant/20;
+}
+
+.testimonial-author-info {
+  @apply flex flex-col;
+}
+
+.testimonial-author-name {
+  @apply font-bold text-on-surface text-sm;
+}
+
+.testimonial-author-title {
+  @apply text-xs text-on-surface-variant;
+}
+
+.cta-section-wrapper {
+  @apply py-xl px-container-margin;
+}
+
+.cta-box {
+  @apply max-w-5xl mx-auto bg-primary-container rounded-[2rem] p-lg text-center text-on-primary-container relative overflow-hidden medical-glow;
+}
+
+.cta-bg-icon {
+  font-family: 'Material Symbols Outlined';
+  @apply absolute top-0 right-0 p-lg opacity-10 text-[180px] pointer-events-none;
+}
+
+.cta-content {
+  @apply relative z-10 space-y-md;
+}
+
+.cta-title {
+  @apply font-headline-lg text-headline-lg;
+}
+
+.cta-desc {
+  @apply font-body-lg text-body-lg max-w-2xl mx-auto opacity-90;
+}
+
+.cta-buttons {
+  @apply flex flex-col sm:flex-row gap-sm justify-center pt-md;
+}
+
+.cta-btn-light {
+  @apply bg-white text-primary px-lg py-sm rounded-full font-label-md text-label-md hover:bg-secondary-fixed transition-colors shadow-md active:scale-95;
+}
+
+.cta-btn-outline {
+  @apply border-2 border-white text-white px-lg py-sm rounded-full font-label-md text-label-md hover:bg-white/10 transition-colors active:scale-95;
+}
+
+.footer-root {
+  @apply bg-inverse-surface text-inverse-on-surface py-lg px-container-margin mb-16 md:mb-0;
+}
+
+.footer-container {
+  @apply max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-md text-center md:text-left;
+}
+
+.footer-brand {
+  @apply flex flex-col items-center md:items-start;
+}
+
+.footer-logo {
+  @apply font-headline-md text-headline-md font-bold text-primary-fixed flex items-center gap-xs;
+}
+
+.footer-logo-icon {
+  font-family: 'Material Symbols Outlined';
+  @apply text-[28px];
+  font-variation-settings: 'FILL' 1;
+}
+
+.footer-text {
+  @apply text-body-sm opacity-80 mt-xs;
+}
+
+.footer-links {
+  @apply flex flex-wrap justify-center gap-lg my-md md:my-0;
+}
+
+.footer-link {
+  @apply hover:text-primary-fixed transition-colors font-label-md text-label-md;
+}
+
+.footer-btn {
+  @apply bg-primary-fixed text-on-primary-fixed px-md py-sm rounded-full font-label-md hover:opacity-90 transition-opacity;
+}
+
+.bottom-nav-root {
+  @apply md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface border-t border-outline-variant/30 shadow-lg;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.bottom-nav-btn {
+  @apply flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 rounded-full transition-all;
+}
+
+.bottom-nav-btn-active {
+  @apply flex flex-col items-center justify-center bg-primary-container text-on-primary rounded-full px-4 py-1 scale-95 transition-transform;
+}
+
+.bottom-nav-icon {
+  font-family: 'Material Symbols Outlined';
+}
+
+.bottom-nav-text {
+  @apply font-label-sm text-label-sm;
+}
+
+.about-hero {
+  @apply px-container-margin py-xl max-w-4xl mx-auto text-center space-y-md;
+}
+
+.about-hero-badge {
+  @apply inline-block px-4 py-1 bg-tertiary-container/10 text-tertiary rounded-full font-label-md text-label-md;
+}
+
+.about-hero-title {
+  @apply font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface;
+}
+
+.about-hero-desc {
+  @apply text-on-surface-variant font-body-lg text-body-lg max-w-2xl mx-auto;
+}
+
+.about-hero-img-box {
+  @apply relative h-[300px] md:h-[440px] rounded-xl overflow-hidden medical-glow;
+}
+
+.about-hero-img {
+  @apply w-full h-full object-cover transition-transform duration-700 group-hover:scale-105;
+}
+
+.about-hero-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black/60 to-transparent;
+}
+
+.about-hero-text-overlay {
+  @apply absolute bottom-md left-md text-white text-left space-y-xs;
+}
+
+.about-story-section {
+  @apply py-xl px-container-margin max-w-7xl mx-auto;
+}
+
+.about-story-grid {
+  @apply grid grid-cols-1 lg:grid-cols-12 gap-gutter items-stretch;
+}
+
+.about-story-card {
+  @apply lg:col-span-8 bg-surface-container border border-outline-variant p-md rounded-xl flex flex-col justify-between text-left space-y-md;
+}
+
+.about-story-title {
+  @apply font-headline-md text-headline-md text-primary;
+}
+
+.about-story-desc {
+  @apply text-on-surface-variant font-body-md text-body-md leading-relaxed;
+}
+
+.about-story-stats {
+  @apply grid grid-cols-2 gap-sm pt-md;
+}
+
+.about-stat-item {
+  @apply p-sm bg-surface-container-low rounded-lg border border-outline-variant/30 flex flex-col justify-center items-center text-center;
+}
+
+.about-stat-num {
+  @apply text-primary font-headline-lg font-bold;
+}
+
+.about-stat-label {
+  @apply text-label-sm text-on-secondary-fixed-variant uppercase tracking-wider;
+}
+
+.about-mission-card {
+  @apply lg:col-span-4 bg-primary-container text-on-primary-container p-md rounded-xl flex flex-col items-center justify-center text-center space-y-sm medical-glow;
+}
+
+.about-mission-icon {
+  font-family: 'Material Symbols Outlined';
+  @apply text-[56px] text-white;
+}
+
+.about-mission-title {
+  @apply font-headline-sm text-headline-sm font-semibold;
+}
+
+.about-mission-desc {
+  @apply font-body-sm text-body-sm opacity-90 leading-relaxed;
+}
+
+.about-tech-section {
+  @apply py-xl px-container-margin max-w-7xl mx-auto;
+}
+
+.about-tech-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-gutter;
+}
+
+.about-tech-card {
+  @apply bg-surface-container border border-outline-variant rounded-xl overflow-hidden flex flex-col md:flex-row text-left items-stretch;
+}
+
+.about-tech-info {
+  @apply md:w-1/2 p-md flex flex-col justify-center space-y-sm;
+}
+
+.about-tech-title {
+  @apply font-headline-sm text-headline-sm text-primary;
+}
+
+.about-tech-desc {
+  @apply text-on-surface-variant font-body-sm text-body-sm;
+}
+
+.about-tech-img-box {
+  @apply md:w-1/2 h-48 md:h-auto relative overflow-hidden;
+}
+
+.about-tech-img {
+  @apply w-full h-full object-cover transition-transform duration-500 hover:scale-105;
+}
+
+.about-team-section {
+  @apply bg-surface-container-high py-xl px-container-margin;
+}
+
+.about-team-container {
+  @apply max-w-7xl mx-auto space-y-lg;
+}
+
+.about-team-header {
+  @apply flex justify-between items-end text-left;
+}
+
+.about-team-badge {
+  @apply text-tertiary font-label-md text-label-md uppercase tracking-widest block mb-xs;
+}
+
+.about-team-title {
+  @apply font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface;
+}
+
+.about-team-track {
+  @apply flex gap-gutter overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth pb-xs;
+}
+
+.about-team-card {
+  @apply min-w-[280px] md:min-w-[320px] snap-start bg-surface rounded-xl overflow-hidden medical-glow border border-outline-variant/30 text-left;
+}
+
+.about-team-avatar-box {
+  @apply h-80 relative overflow-hidden;
+}
+
+.about-team-avatar {
+  @apply w-full h-full object-cover transition-transform duration-700 group-hover:scale-105;
+}
+
+.about-team-info {
+  @apply p-sm space-y-xs;
+}
+
+.about-team-name {
+  @apply font-headline-sm text-headline-sm text-primary;
+}
+
+.about-team-role {
+  @apply text-label-md text-on-surface-variant font-bold;
+}
+
+.about-team-desc {
+  @apply text-body-sm text-on-surface-variant leading-relaxed;
+}
+
+.about-team-arrows {
+  @apply flex gap-sm;
+}
+
+.about-team-arrow {
+  @apply w-12 h-12 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors cursor-pointer select-none;
+}
+
+.about-team-arrow-icon {
+  font-family: 'Material Symbols Outlined';
+}
+
+.detail-hero {
+  @apply relative w-full h-[400px] md:h-[480px] overflow-hidden;
+}
+
+.detail-hero-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent z-10;
+}
+
+.detail-hero-img {
+  @apply w-full h-full object-cover transition-transform duration-1000 hover:scale-105;
+}
+
+.detail-hero-content {
+  @apply absolute bottom-0 left-0 w-full p-container-margin z-20 text-left;
+}
+
+.detail-hero-container {
+  @apply max-w-4xl mx-auto space-y-xs;
+}
+
+.detail-hero-badge {
+  @apply bg-primary-container text-on-primary-container text-label-sm font-label-sm px-3 py-1 rounded-full inline-block;
+}
+
+.detail-hero-title {
+  @apply text-white font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg;
+}
+
+.detail-hero-desc {
+  @apply text-white/90 font-body-lg text-body-lg max-w-2xl;
+}
+
+.detail-main {
+  @apply max-w-4xl mx-auto px-container-margin space-y-xl mt-lg pb-32;
+}
+
+.detail-intro-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-gutter;
+}
+
+.detail-intro-card {
+  @apply bg-surface-container-low p-md rounded-xl border border-outline-variant hover:border-primary transition-colors medical-glow text-left space-y-xs;
+}
+
+.detail-intro-header {
+  @apply flex items-center gap-xs text-primary font-bold;
+}
+
+.detail-intro-icon {
+  font-family: 'Material Symbols Outlined';
+  @apply text-[28px];
+  font-variation-settings: 'FILL' 1;
+}
+
+.detail-intro-title {
+  @apply font-headline-sm text-headline-sm text-primary;
+}
+
+.detail-intro-desc {
+  @apply text-on-surface-variant font-body-md text-body-md leading-relaxed;
+}
+
+.detail-benefits-section {
+  @apply space-y-lg text-left;
+}
+
+.detail-benefits-header {
+  @apply flex items-center gap-xs text-on-surface font-semibold;
+}
+
+.detail-benefits-header-icon {
+  font-family: 'Material Symbols Outlined';
+  @apply text-primary text-[28px];
+}
+
+.detail-benefits-header-title {
+  @apply font-headline-md text-headline-md text-on-surface;
+}
+
+.detail-benefits-grid {
+  @apply grid grid-cols-1 sm:grid-cols-3 gap-gutter;
+}
+
+.detail-benefit-item {
+  @apply flex flex-col items-center text-center p-sm bg-surface-container-low rounded-xl border border-outline-variant/10;
+}
+
+.detail-benefit-icon-box {
+  @apply w-16 h-16 bg-tertiary-container/10 rounded-full flex items-center justify-center mb-sm text-tertiary;
+}
+
+.detail-benefit-icon {
+  font-family: 'Material Symbols Outlined';
+  @apply text-[32px];
+}
+
+.detail-benefit-title {
+  @apply font-label-md text-label-md mb-xs font-bold text-on-surface;
+}
+
+.detail-benefit-desc {
+  @apply text-on-surface-variant text-body-sm font-body-sm leading-relaxed;
+}
+
+.detail-steps-section {
+  @apply space-y-sm text-left;
+}
+
+.detail-steps-title {
+  @apply font-headline-sm text-headline-sm text-on-surface border-b border-outline-variant/40 pb-xs;
+}
+
+.detail-steps-list {
+  @apply space-y-sm;
+}
+
+.detail-step-item {
+  @apply flex gap-sm items-start;
+}
+
+.detail-step-badge {
+  @apply w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm font-bold shrink-0;
+}
+
+.detail-step-text {
+  @apply text-on-surface-variant text-body-md font-body-md;
+}
+
+.detail-faq-section {
+  @apply bg-surface-container-highest/30 p-md rounded-xl space-y-lg;
+}
+
+.detail-faq-title {
+  @apply font-headline-md text-headline-md text-on-surface text-center;
+}
+
+.detail-faq-list {
+  @apply space-y-sm;
+}
+
+.accordion-item {
+  @apply bg-surface rounded-lg border border-outline-variant overflow-hidden cursor-pointer transition-shadow hover:shadow-sm;
+}
+
+.accordion-header {
+  @apply flex items-center justify-between p-sm select-none;
+}
+
+.accordion-title {
+  @apply font-label-md text-label-md text-on-surface font-semibold;
+}
+
+.accordion-arrow {
+  font-family: 'Material Symbols Outlined';
+  @apply text-primary transition-transform duration-300;
+}
+
+.accordion-content {
+  @apply max-h-0 overflow-hidden transition-all duration-300 ease-out;
+}
+
+.accordion-content-inner {
+  @apply px-sm pb-sm text-body-sm font-body-sm text-on-surface-variant border-t border-outline-variant/30 pt-sm leading-relaxed;
+}
+
+.floating-booking-container {
+  @apply fixed bottom-24 md:bottom-8 right-6 z-50;
+}
+
+.floating-booking-btn {
+  @apply bg-primary hover:bg-primary-container text-on-primary h-14 px-8 rounded-full font-label-md text-label-md flex items-center gap-xs medical-glow active:scale-95 transition-all shadow-xl;
+}
+
+.floating-booking-icon {
+  font-family: 'Material Symbols Outlined';
+  font-variation-settings: 'FILL' 1;
+}
+
+.booking-main {
+  @apply flex-grow pt-24 pb-32 px-container-margin max-w-lg mx-auto w-full text-left;
+}
+
+.booking-progress-bar {
+  @apply flex justify-between items-center mb-lg;
+}
+
+.booking-progress-dots {
+  @apply flex gap-xs items-center;
+}
+
+.booking-progress-dot {
+  @apply h-2 rounded-full transition-all duration-300;
+}
+
+.booking-progress-dot-active {
+  @apply w-8 bg-primary;
+}
+
+.booking-progress-dot-inactive {
+  @apply w-2 bg-outline-variant;
+}
+
+.booking-progress-label {
+  @apply font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest;
+}
+
+.booking-form-box {
+  @apply bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-md space-y-md;
+}
+
+.booking-step-title {
+  @apply font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold;
+}
+
+.booking-step-desc {
+  @apply font-body-md text-body-md text-on-surface-variant;
+}
+
+.booking-cards-list {
+  @apply grid grid-cols-1 gap-sm;
+}
+
+.booking-card-label {
+  @apply relative cursor-pointer select-none w-full block;
+}
+
+.booking-card-radio {
+  @apply sr-only;
+}
+
+.booking-card-inner {
+  @apply p-md rounded-xl border border-outline-variant bg-surface-container-lowest flex items-center gap-md peer-checked:border-primary peer-checked:bg-primary-fixed transition-all duration-200;
+}
+
+.booking-card-icon-box {
+  @apply w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary;
+}
+
+.booking-card-icon {
+  font-family: 'Material Symbols Outlined';
+  @apply text-[24px];
+}
+
+.booking-card-text {
+  @apply flex flex-col text-left;
+}
+
+.booking-card-title {
+  @apply font-label-md text-label-md text-on-surface font-semibold;
+}
+
+.booking-card-desc {
+  @apply font-body-sm text-body-sm text-on-surface-variant;
+}
+
+.booking-doctor-avatar {
+  @apply w-14 h-14 rounded-full object-cover border border-outline-variant/30;
+}
+
+.booking-doctor-check {
+  font-family: 'Material Symbols Outlined';
+  @apply ml-auto text-primary opacity-0 peer-checked:opacity-100 transition-opacity duration-200;
+}
+
+.calendar-box {
+  @apply bg-surface-container-lowest rounded-xl border border-outline-variant p-md;
+}
+
+.calendar-header {
+  @apply flex justify-between items-center mb-md;
+}
+
+.calendar-header-title {
+  @apply font-label-md text-label-md font-bold;
+}
+
+.calendar-arrow-btn {
+  @apply p-xs hover:bg-outline-variant/20 rounded-full transition-colors cursor-pointer;
+}
+
+.calendar-arrow-icon {
+  font-family: 'Material Symbols Outlined';
+}
+
+.calendar-grid {
+  @apply grid grid-cols-7 text-center gap-y-sm;
+}
+
+.calendar-day-header {
+  @apply text-[10px] font-bold text-on-surface-variant uppercase py-1;
+}
+
+.calendar-day-btn {
+  @apply py-2 rounded-lg font-body-sm hover:bg-primary-container/10 transition-colors select-none cursor-pointer text-center w-full;
+}
+
+.calendar-day-btn-active {
+  @apply py-2 rounded-lg font-body-sm bg-primary text-on-primary font-bold shadow-sm text-center w-full;
+}
+
+.calendar-day-btn-disabled {
+  @apply py-2 rounded-lg font-body-sm text-on-surface-variant/30 cursor-not-allowed pointer-events-none text-center w-full;
+}
+
+.time-slots-container {
+  @apply space-y-md;
+}
+
+.time-slots-header {
+  @apply font-label-md text-label-md text-on-surface-variant font-bold tracking-wider;
+}
+
+.time-slots-grid {
+  @apply grid grid-cols-3 gap-sm;
+}
+
+.time-slot-label {
+  @apply cursor-pointer select-none w-full block;
+}
+
+.time-slot-radio {
+  @apply sr-only;
+}
+
+.time-slot-inner {
+  @apply py-sm border border-outline-variant rounded-xl text-center font-label-md peer-checked:bg-primary peer-checked:text-on-primary peer-checked:border-primary transition-all duration-200;
+}
+
+.time-slot-inner-disabled {
+  @apply py-sm border border-outline-variant/50 rounded-xl text-center font-label-md bg-secondary-container/20 text-on-surface-variant/30 line-through cursor-not-allowed select-none;
+}
+
+.patient-form-grid {
+  @apply grid grid-cols-1 gap-sm;
+}
+
+.form-field {
+  @apply flex flex-col gap-xs;
+}
+
+.form-label {
+  @apply font-label-md text-label-md text-on-surface-variant font-semibold;
+}
+
+.form-input {
+  @apply w-full h-12 bg-surface-container-lowest border border-outline-variant rounded-lg px-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all;
+}
+
+.form-textarea {
+  @apply w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none;
+}
+
+.booking-action-footer {
+  @apply fixed bottom-0 left-0 w-full bg-surface rounded-t-3xl shadow-lg border-t border-outline-variant/30 flex flex-col p-2 py-3 z-40;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.booking-action-container {
+  @apply flex gap-sm px-container-margin max-w-lg mx-auto w-full mb-2;
+}
+
+.booking-btn-prev {
+  @apply flex-1 h-12 rounded-full border border-primary text-primary font-label-md hover:bg-primary/5 active:scale-95 transition-all duration-150;
+}
+
+.booking-btn-next {
+  @apply flex-[2] h-12 bg-primary text-on-primary rounded-full font-label-md hover:bg-primary-container shadow-md active:scale-95 transition-all duration-150 text-center;
+}
+
+.booking-btn-confirm {
+  @apply flex-[2] h-12 bg-tertiary text-on-tertiary rounded-full font-label-md hover:bg-tertiary-container shadow-md active:scale-95 transition-all duration-150 text-center;
+}
+
+.contact-main {
+  @apply pt-24 pb-32 px-container-margin max-w-7xl mx-auto text-left;
+}
+
+.contact-hero {
+  @apply mb-xl space-y-xs;
+}
+
+.contact-hero-title {
+  @apply font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-bold;
+}
+
+.contact-hero-desc {
+  @apply font-body-lg text-body-lg text-on-surface-variant max-w-2xl;
+}
+
+.contact-bento-grid {
+  @apply grid grid-cols-1 lg:grid-cols-12 gap-gutter items-stretch;
+}
+
+.contact-map-container {
+  @apply lg:col-span-8 h-[400px] md:h-[500px] rounded-xl overflow-hidden relative border border-outline-variant medical-glow;
+}
+
+.contact-map-img {
+  @apply absolute inset-0 w-full h-full object-cover opacity-60;
+}
+
+.contact-map-overlay {
+  @apply absolute inset-0 bg-surface-container-high flex flex-col items-center justify-center text-center p-md;
+}
+
+.contact-map-card {
+  @apply relative z-10 bg-surface/90 backdrop-blur-md p-md rounded-xl border border-outline-variant max-w-sm space-y-sm shadow-md;
+}
+
+.contact-map-icon {
+  font-family: 'Material Symbols Outlined';
+  @apply text-primary text-[40px];
+}
+
+.contact-map-title {
+  @apply font-headline-sm text-headline-sm text-primary font-bold;
+}
+
+.contact-map-desc {
+  @apply font-body-md text-body-md text-on-surface;
+}
+
+.contact-map-btn {
+  @apply inline-flex items-center gap-xs bg-primary text-on-primary px-md py-sm rounded-full font-label-md text-label-md hover:bg-primary-container transition-colors;
+}
+
+.contact-map-btn-icon {
+  font-family: 'Material Symbols Outlined';
+  @apply text-sm;
+}
+
+.contact-sidebar {
+  @apply lg:col-span-4 flex flex-col gap-gutter;
+}
+
+.contact-quick-card {
+  @apply bg-white p-md rounded-xl border border-outline-variant medical-glow flex-1 flex flex-col justify-center space-y-md text-center;
+}
+
+.contact-quick-header {
+  @apply flex items-center justify-center gap-xs text-primary font-bold;
+}
+
+.contact-quick-icon {
+  font-family: 'Material Symbols Outlined';
+  @apply text-[28px];
+}
+
+.contact-quick-title {
+  @apply font-headline-sm text-headline-sm text-on-surface;
+}
+
+.contact-phone-link {
+  @apply block w-full text-center py-md bg-primary-container text-on-primary-container rounded-xl font-headline-sm text-headline-sm hover:opacity-90 transition-opacity;
+}
+
+.contact-quick-desc {
+  @apply font-body-sm text-body-sm text-on-surface-variant;
+}
+
+.contact-whatsapp-btn {
+  @apply flex items-center justify-center gap-sm w-full py-md border-2 border-primary text-primary rounded-xl font-label-md text-label-md hover:bg-primary/5 transition-colors;
+}
+
+.contact-whatsapp-btn-icon {
+  font-family: 'Material Symbols Outlined';
+}
+
+.contact-form-card {
+  @apply lg:col-span-7 bg-white p-lg rounded-xl border border-outline-variant medical-glow space-y-md;
+}
+
+.contact-form-title {
+  @apply font-headline-md text-headline-md text-primary font-semibold;
+}
+
+.contact-form {
+  @apply space-y-md;
+}
+
+.contact-form-row {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-md;
+}
+
+.contact-form-btn {
+  @apply w-full md:w-auto px-xl py-sm bg-primary text-on-primary rounded-full font-label-md text-label-md hover:bg-primary-container shadow-md transition-all active:scale-95 duration-150;
+}
+
+.contact-info-sidebar {
+  @apply lg:col-span-5 flex flex-col gap-gutter;
+}
+
+.contact-hours-card {
+  @apply bg-primary text-on-primary p-lg rounded-xl medical-glow space-y-lg;
+}
+
+.contact-hours-header {
+  @apply flex items-center gap-xs font-semibold;
+}
+
+.contact-hours-icon {
+  font-family: 'Material Symbols Outlined';
+  @apply text-[28px];
+}
+
+.contact-hours-title {
+  @apply font-headline-md text-headline-md;
+}
+
+.contact-hours-list {
+  @apply space-y-sm;
+}
+
+.contact-hours-row {
+  @apply flex justify-between items-center pb-base border-b border-on-primary/20;
+}
+
+.contact-hours-row-last {
+  @apply flex justify-between items-center pb-base;
+}
+
+.contact-hours-day {
+  @apply font-body-md text-body-md opacity-90;
+}
+
+.contact-hours-time {
+  @apply font-label-md text-label-md font-bold;
+}
+
+.contact-hours-note-box {
+  @apply mt-lg p-md bg-white/10 rounded-lg border border-white/20;
+}
+
+.contact-hours-note {
+  @apply font-body-sm text-body-sm italic leading-relaxed;
+}
+
+.contact-newsletter-card {
+  @apply bg-surface-container-high p-lg rounded-xl border border-outline-variant flex-1 flex flex-col justify-center text-left space-y-xs;
+}
+
+.contact-newsletter-title {
+  @apply font-headline-sm text-headline-sm text-primary font-semibold;
+}
+
+.contact-newsletter-desc {
+  @apply font-body-sm text-body-sm text-on-surface-variant;
+}
+
+.contact-newsletter-form {
+  @apply flex gap-xs pt-xs;
+}
+
+.contact-newsletter-input {
+  @apply flex-1 h-10 border border-outline-variant rounded-lg px-md text-sm outline-none bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary;
+}
+
+.contact-newsletter-btn {
+  @apply bg-primary text-on-primary h-10 px-md rounded-lg font-label-md text-label-md hover:bg-primary-container;
+}
+
+.contact-trust-logos {
+  @apply mt-xl flex flex-wrap justify-center items-center gap-lg opacity-40 grayscale select-none;
+}
+
+.contact-trust-logo {
+  @apply font-headline-sm text-headline-sm font-bold tracking-widest;
+}
+
+.confirm-main {
+  @apply flex-grow flex items-center justify-center pt-24 pb-xl px-container-margin relative overflow-hidden bg-pattern;
+}
+
+.confirm-bg-circle-1 {
+  @apply absolute top-1/4 -right-20 w-64 h-64 bg-primary-container/10 rounded-full blur-3xl pointer-events-none;
+}
+
+.confirm-bg-circle-2 {
+  @apply absolute bottom-1/4 -left-20 w-80 h-80 bg-tertiary-container/10 rounded-full blur-3xl pointer-events-none;
+}
+
+.confirm-card {
+  @apply max-w-lg w-full bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-md relative z-10 text-center;
+}
+
+.confirm-header {
+  @apply flex flex-col items-center mb-lg;
+}
+
+.confirm-icon-box-success {
+  @apply w-20 h-20 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center mb-md success-check-anim;
+}
+
+.confirm-icon-box-error {
+  @apply w-24 h-24 bg-error-container rounded-full flex items-center justify-center error-shake medical-glow relative mb-lg;
+}
+
+.confirm-icon-success {
+  font-family: 'Material Symbols Outlined';
+  @apply text-[48px];
+  font-variation-settings: 'wght' 700;
+}
+
+.confirm-icon-error {
+  font-family: 'Material Symbols Outlined';
+  @apply text-error text-[48px];
+  font-variation-settings: 'FILL' 1;
+}
+
+.confirm-title-success {
+  @apply font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary mb-xs font-bold;
+}
+
+.confirm-title-error {
+  @apply font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-xs font-bold;
+}
+
+.confirm-desc {
+  @apply font-body-md text-body-md text-on-surface-variant px-sm;
+}
+
+.confirm-details-grid {
+  @apply grid grid-cols-1 gap-gutter mb-lg text-left;
+}
+
+.confirm-doctor-card {
+  @apply flex items-center gap-sm p-sm bg-surface-container-low rounded-xl border border-outline-variant/30;
+}
+
+.confirm-doctor-avatar-wrap {
+  @apply w-16 h-16 rounded-full overflow-hidden bg-outline-variant flex-shrink-0;
+}
+
+.confirm-doctor-avatar {
+  @apply w-full h-full object-cover;
+}
+
+.confirm-doctor-info {
+  @apply flex flex-col justify-center;
+}
+
+.confirm-detail-label {
+  @apply font-label-sm text-label-sm text-secondary uppercase tracking-wider;
+}
+
+.confirm-doctor-name {
+  @apply font-headline-sm text-headline-sm text-on-surface font-semibold;
+}
+
+.confirm-doctor-title {
+  @apply font-body-sm text-body-sm text-on-surface-variant;
+}
+
+.confirm-datetime-row {
+  @apply grid grid-cols-2 gap-gutter;
+}
+
+.confirm-datetime-card {
+  @apply p-sm bg-surface-container rounded-xl border border-outline-variant/30 flex flex-col gap-xs;
+}
+
+.confirm-datetime-icon {
+  font-family: 'Material Symbols Outlined';
+  @apply text-primary text-[24px];
+  font-variation-settings: 'FILL' 1;
+}
+
+.confirm-datetime-value {
+  @apply font-label-md text-label-md text-on-surface font-semibold;
+}
+
+.confirm-location-card {
+  @apply p-sm bg-surface-container-high rounded-xl border border-outline-variant/30 flex items-start gap-sm;
+}
+
+.confirm-location-icon {
+  font-family: 'Material Symbols Outlined';
+  @apply text-primary text-[24px] mt-1;
+}
+
+.confirm-location-btn {
+  @apply mt-xs text-primary font-label-md text-label-md hover:underline flex items-center gap-1 cursor-pointer;
+}
+
+.confirm-location-btn-icon {
+  font-family: 'Material Symbols Outlined';
+  @apply text-[16px];
+}
+
+.confirm-action-btn-primary {
+  @apply w-full h-14 bg-primary text-on-primary rounded-xl font-label-md text-label-md flex items-center justify-center gap-xs hover:bg-primary-container transition-all active:scale-95;
+}
+
+.confirm-action-btn-secondary {
+  @apply w-full h-14 bg-surface-container-lowest text-primary border-2 border-primary rounded-xl font-label-md text-label-md flex items-center justify-center gap-xs hover:bg-primary-container/5 transition-all active:scale-95 cursor-pointer;
+}
+
+.confirm-support-footer {
+  @apply mt-md pt-md border-t border-outline-variant text-center;
+}
+
+.confirm-support-text {
+  @apply font-body-sm text-body-sm text-on-surface-variant;
+}
+
+.confirm-support-link {
+  @apply text-primary font-bold hover:underline;
+}
+
+.confirm-error-info-card {
+  @apply bg-surface-container-low border border-outline-variant rounded-xl p-md text-left space-y-sm;
+}
+
+.confirm-error-info-layout {
+  @apply flex items-start gap-sm;
+}
+
+.confirm-error-info-icon {
+  font-family: 'Material Symbols Outlined';
+  @apply text-tertiary mt-1;
+}
+
+.confirm-error-info-title {
+  @apply font-label-md text-label-md text-on-surface font-bold;
+}
+
+.confirm-error-info-desc {
+  @apply font-body-sm text-body-sm text-on-surface-variant;
+}
+
+.confirm-error-action-row {
+  @apply flex flex-col gap-sm pt-md;
+}
+
+.confirm-error-btn-retry {
+  @apply bg-primary text-on-primary font-label-md text-label-md h-12 px-xl rounded-full hover:bg-primary-container transition-all active:scale-95 flex items-center justify-center gap-xs;
+}
+
+.confirm-error-btn-services {
+  @apply bg-transparent text-primary font-label-md text-label-md h-12 px-xl rounded-full border border-primary hover:bg-primary-container/10 transition-all active:scale-95;
+}
+
+.confirm-error-support-row {
+  @apply mt-xl pt-lg border-t border-outline-variant w-full max-w-sm mx-auto;
+}
+
+.confirm-error-support-label {
+  @apply font-label-sm text-label-sm text-secondary mb-base block;
+}
+
+.confirm-error-support-links {
+  @apply flex items-center justify-center gap-lg;
+}
+
+.confirm-error-support-link {
+  @apply flex items-center gap-xs text-primary font-label-md text-label-md hover:underline;
+}
+
+.confirm-error-support-icon {
+  font-family: 'Material Symbols Outlined';
+  @apply text-[20px];
+}
+
+.mobile-drawer-root {
+  @apply fixed inset-y-0 left-0 z-[60] flex flex-col p-md w-80 bg-surface-container-low border-r border-outline-variant shadow-xl transition-transform duration-300 ease-in-out md:hidden;
+}
+
+.mobile-drawer-overlay {
+  @apply fixed inset-0 bg-black/20 z-[55] backdrop-blur-sm transition-opacity duration-300;
+}
+
+.mobile-drawer-brand {
+  @apply flex items-center gap-sm mb-lg text-left;
+}
+
+.mobile-drawer-logo-box {
+  @apply w-12 h-12 bg-primary-container rounded-lg flex items-center justify-center text-on-primary-container;
+}
+
+.mobile-drawer-logo-icon {
+  font-family: 'Material Symbols Outlined';
+  @apply text-[28px];
+}
+
+.mobile-drawer-logo-text {
+  @apply font-headline-sm text-headline-sm text-primary font-bold;
+}
+
+.mobile-drawer-logo-tagline {
+  @apply font-label-sm text-label-sm text-on-surface-variant;
+}
+
+.mobile-drawer-nav {
+  @apply flex flex-col gap-base text-left;
+}
+
+.mobile-drawer-link {
+  @apply flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-variant rounded-full transition-colors font-label-md text-label-md;
+}
+
+.mobile-drawer-link-active {
+  @apply flex items-center gap-sm px-md py-sm bg-tertiary-container text-on-tertiary font-bold rounded-full font-label-md text-label-md;
+}
+
+.mobile-drawer-link-icon {
+  font-family: 'Material Symbols Outlined';
+}
+
+.mobile-drawer-close-btn {
+  @apply absolute top-4 right-4 text-on-surface-variant p-2 rounded-full hover:bg-surface-variant/50 transition-colors;
+}
+
+.payment-form-box {
+  @apply space-y-md;
+}
+
+.payment-card-visual {
+  @apply bg-gradient-to-br from-primary to-primary-container text-white p-md rounded-2xl relative overflow-hidden shadow-lg h-44 flex flex-col justify-between mb-md select-none;
+}
+
+.payment-card-chip {
+  @apply w-12 h-8 bg-amber-400/20 rounded-md border border-amber-400/30 flex items-center justify-center;
+}
+
+.payment-card-number {
+  @apply text-xl font-mono tracking-widest text-center py-2;
+}
+
+.payment-card-footer {
+  @apply flex justify-between items-end;
+}
+
+.payment-card-holder {
+  @apply flex flex-col;
+}
+
+.payment-card-label {
+  @apply text-[9px] text-white/70 uppercase font-semibold;
+}
+
+.payment-card-val {
+  @apply text-sm font-semibold truncate max-w-[180px];
+}
